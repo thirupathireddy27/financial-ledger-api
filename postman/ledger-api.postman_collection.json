@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "bde66896-016f-4ce6-aee5-bc2102863212",
+		"name": "Financial Ledger API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46873352",
+		"_collection_link": "https://thirupathireddy-2856323.postman.co/workspace/Thirupathi-Reddy's-Workspace~7ba5a2e8-0024-4c16-8ff3-fa5db1cfe803/collection/46873352-bde66896-016f-4ce6-aee5-bc2102863212?action=share&source=collection_link&creator=46873352"
+	},
+	"item": [
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"user-1\",\r\n  \"type\": \"checking\",\r\n  \"currency\": \"INR\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"accountId\": \"d1c4e365-b9b2-4c6a-8448-0dee4178b474\",\r\n  \"amount\": 1000,\r\n  \"currency\": \"INR\",\r\n  \"description\": \"Initial deposit\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/deposits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"deposits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sourceAccountId\": \"d1c4e365-b9b2-4c6a-8448-0dee4178b474\",\r\n  \"destinationAccountId\": \"467e9b7c-c094-4000-b095-dd20db09c403\",\r\n  \"amount\": 400,\r\n  \"currency\": \"INR\",\r\n  \"description\": \"Test transfer\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/transfers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"transfers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/accounts/d1c4e365-b9b2-4c6a-8448-0dee4178b474",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"d1c4e365-b9b2-4c6a-8448-0dee4178b474"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Ledger",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/accounts/d1c4e365-b9b2-4c6a-8448-0dee4178b474/ledger",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"d1c4e365-b9b2-4c6a-8448-0dee4178b474",
+						"ledger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw (Overdraft Test)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"accountId\": \"d1c4e365-b9b2-4c6a-8448-0dee4178b474\",\r\n  \"amount\": 5000,\r\n  \"currency\": \"INR\",\r\n  \"description\": \"Overdraft attempt\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/withdrawals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"withdrawals"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
