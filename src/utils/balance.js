@@ -1,17 +1,19 @@
-const prisma = require('../prisma');
+import { Prisma } from '@prisma/client'
 
-async function calculateBalance(accountId) {
-  const entries = await prisma.ledgerEntry.findMany({
+export async function calculateBalance(tx, accountId) {
+  const entries = await tx.ledgerEntry.findMany({
     where: { accountId }
-  });
+  })
 
-  return entries.reduce((balance, entry) => {
+  let balance = new Prisma.Decimal(0)
+
+  for (const entry of entries) {
     if (entry.entryType === 'credit') {
-      return balance + entry.amount.toNumber();
+      balance = balance.plus(entry.amount)
+    } else {
+      balance = balance.minus(entry.amount)
     }
-    return balance - entry.amount.toNumber();
-  }, 0);
-}
+  }
 
-module.exports = { calculateBalance };
-    
+  return balance // <-- Decimal only
+}

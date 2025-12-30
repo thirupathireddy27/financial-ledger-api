@@ -1,0 +1,26 @@
+[
+    {
+        "id": "2ac3a358-4a29-4e21-afb9-60b353a29511",
+        "accountId": "c29907d9-d282-48d9-bb5a-fcd1202aeea4",
+        "transactionId": "1d3df929-d714-4dbc-9072-bdb4ab00ca17",
+        "entryType": "credit",
+        "amount": "1000",
+        "createdAt": "2025-12-30T18:39:49.137Z"
+    },
+    {
+        "id": "c3c02999-44a9-4001-81f7-709857db2590",
+        "accountId": "c29907d9-d282-48d9-bb5a-fcd1202aeea4",
+        "transactionId": "f5a95d8c-1ec6-41b3-b892-50bdc21afbc4",
+        "entryType": "credit",
+        "amount": "1000",
+        "createdAt": "2025-12-30T18:42:50.682Z"
+    },
+    {
+        "id": "fa8bfbfb-324d-4137-85dd-6aa0c2ac5a96",
+        "accountId": "c29907d9-d282-48d9-bb5a-fcd1202aeea4",
+        "transactionId": "08ca7d64-c270-4a3b-8838-22d88e372d58",
+        "entryType": "debit",
+        "amount": "400",
+        "createdAt": "2025-12-30T18:44:50.574Z"
+    }
+]

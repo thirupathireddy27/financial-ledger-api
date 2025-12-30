@@ -1,0 +1,11 @@
+{
+    "id": "f5a95d8c-1ec6-41b3-b892-50bdc21afbc4",
+    "type": "deposit",
+    "sourceAccountId": null,
+    "destinationAccountId": "c29907d9-d282-48d9-bb5a-fcd1202aeea4",
+    "amount": "1000",
+    "currency": "INR",
+    "status": "completed",
+    "description": "Initial deposit",
+    "createdAt": "2025-12-30T18:42:50.669Z"
+}

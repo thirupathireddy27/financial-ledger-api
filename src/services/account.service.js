@@ -1,35 +1,46 @@
-const prisma = require('../prisma');
-const { calculateBalance } = require('../utils/balance');
+const prisma = require('../prisma')
+const { calculateBalance } = require('../utils/balance')
 
-async function createAccount(data) {
+async function createAccount({ userId, accountType, currency }) {
   return prisma.account.create({
-    data
-  });
+    data: {
+      userId,
+      type: accountType, // correct mapping
+      currency,
+      status: 'active'
+    }
+  })
 }
 
 async function getAccountById(accountId) {
   const account = await prisma.account.findUnique({
     where: { id: accountId }
-  });
+  })
 
   if (!account) {
-    throw new Error('ACCOUNT_NOT_FOUND');
+    throw new Error('ACCOUNT_NOT_FOUND')
   }
 
-  const balance = await calculateBalance(accountId);
+  // balance calculation must use transaction
+  const balance = await prisma.$transaction(async (tx) => {
+    return calculateBalance(tx, accountId)
+  })
 
-  return { ...account, balance };
+  return {
+    ...account,
+    balance: balance.toString() // Decimal → string for API
+  }
 }
 
 async function getLedger(accountId) {
   return prisma.ledgerEntry.findMany({
     where: { accountId },
     orderBy: { createdAt: 'asc' }
-  });
+  })
 }
 
 module.exports = {
   createAccount,
   getAccountById,
   getLedger
-};
+}

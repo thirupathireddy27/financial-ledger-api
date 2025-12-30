@@ -1,0 +1,11 @@
+{
+    "id": "08ca7d64-c270-4a3b-8838-22d88e372d58",
+    "type": "transfer",
+    "sourceAccountId": "c29907d9-d282-48d9-bb5a-fcd1202aeea4",
+    "destinationAccountId": "6736de24-ca27-471e-bfa3-9cfe56e77b1c",
+    "amount": "400",
+    "currency": "INR",
+    "status": "completed",
+    "description": "Test transfer",
+    "createdAt": "2025-12-30T18:44:50.566Z"
+}

@@ -1,13 +1,13 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 
-app.use(express.json());
+const accountRoutes = require('./routes/account.routes')
+const transactionRoutes = require('./routes/transaction.routes')
 
-app.use('/accounts', require('./routes/account.routes'));
-app.use('/', require('./routes/transaction.routes'));
+app.use(express.json()) // 🔥 THIS LINE IS REQUIRED
 
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok' });
-});
+app.use('/accounts', accountRoutes)
+app.use('/', transactionRoutes)
 
-module.exports = app;
+module.exports = app
+

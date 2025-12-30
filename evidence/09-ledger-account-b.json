@@ -1,0 +1,10 @@
+[
+    {
+        "id": "359a2dd7-01cd-44c6-9c7b-0b476bf2e240",
+        "accountId": "6736de24-ca27-471e-bfa3-9cfe56e77b1c",
+        "transactionId": "08ca7d64-c270-4a3b-8838-22d88e372d58",
+        "entryType": "credit",
+        "amount": "400",
+        "createdAt": "2025-12-30T18:44:50.574Z"
+    }
+]
